@@ -42,7 +42,5 @@ WHERE
 ORDER BY
     salary_year_avg DESC
 LIMIT 10;
-
-[Top_paying_jobs](C:\Users\NANI\OneDrive\Desktop)
-
-
+```
+![Top_paying_jobs] (https://github.com/Vishnu03T/SQL_PROJECT_DATA_JOB/blob/main/query_1.jpg)
