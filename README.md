@@ -132,5 +132,38 @@ ORDER BY
     avg_salary DESC
 LIMIT 25
 ```
-![In_demand_skills](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_3.jpg)
+![Salary_based](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_4.jpg)
+### Key Insights
+* SVN (Subversion) tops the list with a significantly higher average salary.
+* Blockchain technology (Solidity) is the second highest-paying skill.
+* Database skills (Couchbase) and AI/ML platforms (DataRobot) are highly valued.
+* Golang, a modern programming language, rounds out the top 5.
+* There's a substantial gap between the top skill (SVN) and the others in terms of average salary.
+
+### 5.Most optimal skill to learn
+Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and high salaries, offering a strategic focus for skill development.
+### Query
+```sql
+SELECT
+    skills_dim.skill_id,
+    skills_dim.skills,
+    COUNT(skills_job_dim.job_id) AS demand_count,
+    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim on job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    salary_year_avg IS NOT NULL
+    AND job_work_from_home = TRUE
+GROUP BY 
+    skills_dim.skill_id
+HAVING
+    count(skills_job_dim.job_id)>10
+ORDER BY
+    avg_salary DESC,
+    demand_count DESC
+limit 25;
+```
+![Optimal_skill_to_learn](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_5.jpg)
 
