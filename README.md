@@ -104,4 +104,33 @@ ORDER BY
     demand_count DESC
 LIMIT 5
 ```
-![In_demand_skills]()
+![In_demand_skills](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_3.jpg)
+### Key Insights
+* SQL is by far the most in-demand skill, mentioned in 7,291 job listings.
+* Excel remains highly relevant, being the second most in-demand skill.
+* Python is close behind Excel, highlighting its importance in modern data analysis.
+* Tableau and Power BI are the most sought-after data visualization tools.
+* The demand for SQL is almost 3 times higher than for Power BI, the least demanded skill in the top 5.
+
+### 4.Skills based on salary
+exploaring the average salaries associated with different skills revealed which skills are the highest paying.
+### Query
+```sql
+SELECT
+    skills,
+    ROUND(AVG(salary_year_avg), 0) AS avg_salary
+FROM job_postings_fact
+INNER JOIN skills_job_dim on job_postings_fact.job_id = skills_job_dim.job_id
+INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+WHERE
+    job_title_short = 'Data Analyst' AND
+    salary_year_avg IS NOT NULL
+    --job_work_from_home = TRUE
+Group BY
+    skills
+ORDER BY
+    avg_salary DESC
+LIMIT 25
+```
+![In_demand_skills](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_3.jpg)
+
