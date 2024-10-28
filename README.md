@@ -43,7 +43,7 @@ ORDER BY
 LIMIT 10;
 ```
 ![Top_paying_jobs](https://raw.githubusercontent.com/Vishnu03T/SQL_PROJECT_DATA_JOB/main/query_1.jpg)
-* Bar graph visualizing top paying jobs roels for Data Analyst
+* Bar graph visualizing top paying jobs roles for Data Analyst
 
 ### 2.Skills for Top paying jobs
 To understand what skills are required for the top-paying jobs, I joined the job postings with the skills data, providing insights into what employers value for high-compensation roles.
