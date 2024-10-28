@@ -112,7 +112,7 @@ LIMIT 5
 * The demand for SQL is almost 3 times higher than for Power BI, the least demanded skill in the top 5.
 
 ### 4.Skills based on salary
-exploring the average salaries associated with different skills revealed which skills are the highest paying.
+Exploring the average salaries associated with different skills revealed which skills are the highest paying.
 ### Query
 ```sql
 SELECT
