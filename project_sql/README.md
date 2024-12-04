@@ -173,7 +173,7 @@ print(final_merged_with_admittime_df.head())
 final_merged_with_admittime_df.to_csv('/content/final_merged_with_admittime.csv', index=False)
 ```
 ## Query to extract dnr patients
-```
+```sql
 SELECT hadm_id
 FROM physionet-data.mimiciii_notes.noteevents
 WHERE LOWER(text) LIKE '%do not resuscitate%' OR LOWER(text) LIKE '%dnr%'
