@@ -93,7 +93,7 @@ GROUP BY
     tp.subject_id, tp.hadm_id;
 ```
 ## Code for merging static and dynamic variables
-```
+```python
 # Load the CSV files
 static_df = pd.read_csv('path/to/static_variables.csv')
 dynamic_group1_df = pd.read_csv('path/to/dynamic_variables_group1.csv')
@@ -110,7 +110,7 @@ final_df.to_csv('path/to/final_merged_variables.csv', index=False)
 final_df.head()
 ```
 ## Query to extract Dob
-```
+```sql
 WITH trauma_patients AS (
     SELECT DISTINCT
         subject_id
@@ -128,7 +128,7 @@ FROM
 LEFT JOIN `physionet-data.mimiciii_clinical.patients` p ON tp.subject_id = p.subject_id;
 ```
 ## Merging DOB with current dataset
-```
+```python
 # Load your existing merged dataset (static and dynamic variables)
 merged_df = pd.read_csv('path/to/your/existing_merged_dataset.csv')
 
@@ -145,7 +145,7 @@ final_merged_df.to_csv('path/to/final_merged_with_dob.csv', index=False)
 print(final_merged_df.head())
 ```
 ## Query to extract admittime 
-```
+```sql
 SELECT subject_id, hadm_id, admittime
 FROM `physionet-data.mimiciii_clinical.admissions`
 WHERE subject_id IN (
