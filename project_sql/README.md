@@ -154,7 +154,7 @@ WHERE subject_id IN (
 )
 ```
 ## Code for merging admittime with current dataset
-```
+```python
 import pandas as pd
 
 # Load the existing dataset
